@@ -2,6 +2,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'rea
 import { Link } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 
+<<<<<<< HEAD
 const SELLING_TIPS = [
   {
     icon: 'camera-outline',
@@ -22,6 +23,52 @@ const SELLING_TIPS = [
     icon: 'time-outline',
     title: 'Be responsive',
     description: 'Quick responses lead to more sales',
+=======
+const SELLING_STEPS = [
+  {
+    icon: 'camera-outline',
+    title: 'Take Great Photos',
+    description: 'Use natural light and capture multiple angles. Show any imperfections clearly.',
+    tips: [
+      'Use good lighting',
+      'Take photos from all angles',
+      'Show size reference',
+      'Capture any flaws',
+    ],
+  },
+  {
+    icon: 'document-text-outline',
+    title: 'Describe Your Item',
+    description: 'Be detailed and honest about the condition. Include all relevant information.',
+    tips: [
+      'Accurate measurements',
+      'Brand and size details',
+      'Material composition',
+      'Condition description',
+    ],
+  },
+  {
+    icon: 'pricetag-outline',
+    title: 'Set the Right Price',
+    description: 'Research similar items to price competitively. Consider item condition.',
+    tips: [
+      'Check similar listings',
+      'Factor in condition',
+      'Consider shipping costs',
+      'Set competitive price',
+    ],
+  },
+  {
+    icon: 'cube-outline',
+    title: 'Shipping & Packaging',
+    description: 'Package items securely and ship promptly after sale.',
+    tips: [
+      'Use appropriate packaging',
+      'Protect fragile items',
+      'Ship within 2 days',
+      'Track all shipments',
+    ],
+>>>>>>> Carrito de compras
   },
 ];
 
@@ -29,7 +76,11 @@ export default function SellScreen() {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.header}>
+<<<<<<< HEAD
         <Text style={styles.headerTitle}>Sell an Item</Text>
+=======
+        <Text style={styles.headerTitle}>Start Selling</Text>
+>>>>>>> Carrito de compras
       </View>
 
       <View style={styles.hero}>
@@ -45,6 +96,7 @@ export default function SellScreen() {
         </View>
       </View>
 
+<<<<<<< HEAD
       <View style={styles.tipsSection}>
         <Text style={styles.sectionTitle}>Selling Tips</Text>
         <View style={styles.tipsGrid}>
@@ -56,11 +108,44 @@ export default function SellScreen() {
             </View>
           ))}
         </View>
+=======
+      <View style={styles.stepsContainer}>
+        <Text style={styles.sectionTitle}>How to Sell Successfully</Text>
+        
+        {SELLING_STEPS.map((step, index) => (
+          <View key={index} style={styles.stepCard}>
+            <View style={styles.stepHeader}>
+              <View style={styles.iconContainer}>
+                <Ionicons name={step.icon} size={32} color="#FF385C" />
+              </View>
+              <View style={styles.stepTitleContainer}>
+                <Text style={styles.stepNumber}>Step {index + 1}</Text>
+                <Text style={styles.stepTitle}>{step.title}</Text>
+              </View>
+            </View>
+            
+            <Text style={styles.stepDescription}>{step.description}</Text>
+            
+            <View style={styles.tipsList}>
+              {step.tips.map((tip, tipIndex) => (
+                <View key={tipIndex} style={styles.tipItem}>
+                  <Ionicons name="checkmark-circle" size={20} color="#4CAF50" />
+                  <Text style={styles.tipText}>{tip}</Text>
+                </View>
+              ))}
+            </View>
+          </View>
+        ))}
+>>>>>>> Carrito de compras
       </View>
 
       <Link href="/sell/new" asChild>
         <TouchableOpacity style={styles.button}>
+<<<<<<< HEAD
           <Text style={styles.buttonText}>List an Item</Text>
+=======
+          <Text style={styles.buttonText}>Start Selling</Text>
+>>>>>>> Carrito de compras
           <Ionicons name="arrow-forward" size={20} color="#fff" />
         </TouchableOpacity>
       </Link>
@@ -110,12 +195,17 @@ const styles = StyleSheet.create({
     color: '#fff',
     opacity: 0.9,
   },
+<<<<<<< HEAD
   tipsSection: {
+=======
+  stepsContainer: {
+>>>>>>> Carrito de compras
     padding: 16,
   },
   sectionTitle: {
     fontSize: 20,
     fontWeight: '600',
+<<<<<<< HEAD
     marginBottom: 16,
   },
   tipsGrid: {
@@ -128,6 +218,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 16,
     borderRadius: 12,
+=======
+    marginBottom: 24,
+  },
+  stepCard: {
+    backgroundColor: '#fff',
+    borderRadius: 16,
+    padding: 16,
+    marginBottom: 16,
+>>>>>>> Carrito de compras
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -137,6 +236,7 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 3,
   },
+<<<<<<< HEAD
   tipTitle: {
     fontSize: 16,
     fontWeight: '600',
@@ -147,6 +247,56 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
     lineHeight: 20,
+=======
+  stepHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 12,
+  },
+  iconContainer: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: '#FFF5F6',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight: 12,
+  },
+  stepTitleContainer: {
+    flex: 1,
+  },
+  stepNumber: {
+    fontSize: 14,
+    color: '#FF385C',
+    fontWeight: '600',
+    marginBottom: 4,
+  },
+  stepTitle: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#000',
+  },
+  stepDescription: {
+    fontSize: 16,
+    color: '#666',
+    lineHeight: 24,
+    marginBottom: 16,
+  },
+  tipsList: {
+    backgroundColor: '#F8F8F8',
+    borderRadius: 12,
+    padding: 12,
+  },
+  tipItem: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 8,
+  },
+  tipText: {
+    marginLeft: 8,
+    fontSize: 14,
+    color: '#444',
+>>>>>>> Carrito de compras
   },
   button: {
     flexDirection: 'row',

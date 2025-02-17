@@ -1,6 +1,10 @@
 import { useEffect } from 'react';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+<<<<<<< HEAD
+=======
+import { CartProvider } from './context/CartContext';
+>>>>>>> Carrito de compras
 
 declare global {
   interface Window {
@@ -14,6 +18,7 @@ export default function RootLayout() {
   }, []);
 
   return (
+<<<<<<< HEAD
     <>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="+not-found" />
@@ -22,3 +27,21 @@ export default function RootLayout() {
     </>
   );
 }
+=======
+    <CartProvider>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
+        <Stack.Screen 
+          name="cart" 
+          options={{
+            presentation: 'modal',
+            headerShown: true,
+            title: 'Shopping Cart',
+          }} 
+        />
+      </Stack>
+      <StatusBar style="auto" />
+    </CartProvider>
+  );
+}
+>>>>>>> Carrito de compras

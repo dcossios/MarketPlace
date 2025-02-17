@@ -1,5 +1,13 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+<<<<<<< HEAD
+=======
+import { useCart } from '../context/CartContext';
+import { useRouter } from 'expo-router';
+
+const { width } = Dimensions.get('window');
+const COLUMN_WIDTH = (width - 48) / 2;
+>>>>>>> Carrito de compras
 
 const SAMPLE_PRODUCTS = [
   {
@@ -10,6 +18,14 @@ const SAMPLE_PRODUCTS = [
     seller: 'Sarah M.',
     likes: 24,
     height: 200,
+<<<<<<< HEAD
+=======
+    description: 'Classic vintage denim jacket in excellent condition. Features traditional button closure and two front pockets. Perfect for any casual outfit.',
+    brand: 'Levi\'s',
+    size: 'M',
+    condition: 'Excellent',
+    color: 'Blue',
+>>>>>>> Carrito de compras
   },
   {
     id: '2',
@@ -19,6 +35,14 @@ const SAMPLE_PRODUCTS = [
     seller: 'Mike R.',
     likes: 56,
     height: 280,
+<<<<<<< HEAD
+=======
+    description: 'Premium designer sneakers in like-new condition. Comfortable fit with modern design.',
+    brand: 'Nike',
+    size: '42',
+    condition: 'Like New',
+    color: 'White',
+>>>>>>> Carrito de compras
   },
   {
     id: '3',
@@ -28,6 +52,14 @@ const SAMPLE_PRODUCTS = [
     seller: 'Emma L.',
     likes: 42,
     height: 240,
+<<<<<<< HEAD
+=======
+    description: 'Genuine leather crossbody bag with adjustable strap. Multiple compartments for organization.',
+    brand: 'Coach',
+    size: 'One Size',
+    condition: 'Good',
+    color: 'Brown',
+>>>>>>> Carrito de compras
   },
   {
     id: '4',
@@ -37,6 +69,7 @@ const SAMPLE_PRODUCTS = [
     seller: 'Julia K.',
     likes: 18,
     height: 180,
+<<<<<<< HEAD
   },
 ];
 
@@ -46,6 +79,25 @@ const COLUMN_WIDTH = (width - 48) / 2;
 function ProductCard({ item, style }) {
   return (
     <TouchableOpacity style={[styles.card, style]}>
+=======
+    description: 'Beautiful vintage silk scarf with unique pattern. Perfect accessory for any outfit.',
+    brand: 'Vintage',
+    size: 'One Size',
+    condition: 'Good',
+    color: 'Multi',
+  },
+];
+
+function ProductCard({ item, style }) {
+  const { addItem } = useCart();
+  const router = useRouter();
+
+  return (
+    <TouchableOpacity 
+      style={[styles.card, style]}
+      onPress={() => router.push(`/product/${item.id}`)}
+    >
+>>>>>>> Carrito de compras
       <Image 
         source={{ uri: item.image }} 
         style={[styles.image, { height: item.height }]}
@@ -61,10 +113,27 @@ function ProductCard({ item, style }) {
             />
             <Text style={styles.seller}>{item.seller}</Text>
           </View>
+<<<<<<< HEAD
           <View style={styles.likes}>
             <Ionicons name="heart-outline" size={16} color="#666" />
             <Text style={styles.likesCount}>{item.likes}</Text>
           </View>
+=======
+          <TouchableOpacity 
+            style={styles.addToCartButton}
+            onPress={(e) => {
+              e.stopPropagation();
+              addItem({
+                id: item.id,
+                title: item.title,
+                price: item.price,
+                image: item.image,
+              });
+            }}
+          >
+            <Ionicons name="cart-outline" size={20} color="#FF385C" />
+          </TouchableOpacity>
+>>>>>>> Carrito de compras
         </View>
       </View>
     </TouchableOpacity>
@@ -189,6 +258,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+<<<<<<< HEAD
   likes: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -198,4 +268,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#666',
   },
+=======
+  addToCartButton: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#FFF5F6',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+>>>>>>> Carrito de compras
 });
